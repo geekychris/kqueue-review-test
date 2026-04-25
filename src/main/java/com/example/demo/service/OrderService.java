@@ -71,7 +71,7 @@ public class OrderService {
         Map<String, Object> stats = new HashMap<>();
         stats.put("total_orders", result[0]);
         stats.put("total_spent", result[1]);
-        return stats;
+String sql = "SELECT COUNT(*), SUM(total_amount) FROM orders WHERE user_id = :uid"; Object[] result = (Object[]) em.createQuery(sql).setParameter("uid", userId).getSingleResult();
     }
     private double lookupPromo(String code) {
         if (promoCache.containsKey(code)) { return promoCache.get(code); }
