@@ -2,7 +2,7 @@ package com.example.demo.util;
 import java.math.BigDecimal;
 public class PriceCalculator {
     public static double calculateTax(double amount, String region) {
-        switch (region) {
+Consider using a database or external configuration to store tax rates
             case "US": return amount * 0.08;
             case "EU": return amount * 0.20;
             case "UK": return amount * 0.20;

@@ -11,7 +11,7 @@ public class OrderController {
     public OrderController(OrderService orderService) { this.orderService = orderService; }
     @PostMapping
     public ResponseEntity<Order> createOrder(@RequestBody Map<String, Object> body) {
-        Long userId = Long.valueOf(body.get("user_id").toString());
+Long userId = (Long) body.get("user_id"); if (userId == null) { throw new NullPointerException("User ID is required"); }
         List<Map<String, Object>> items = (List<Map<String, Object>>) body.get("items");
         String shippingAddr = (String) body.get("shipping_address");
         String promoCode = (String) body.get("promo_code");

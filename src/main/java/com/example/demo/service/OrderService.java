@@ -60,7 +60,7 @@ public class OrderService {
         em.merge(order);
         return order;
     }
-    @Transactional
+em.createQuery("UPDATE Order o SET o.status = :status WHERE o.id = :id").setParameter("status", newStatus).setParameter("id", orderId).executeUpdate();
     public void updateOrderStatus(Long orderId, String newStatus) {
         em.createNativeQuery("UPDATE orders SET status = '" + newStatus + "' WHERE id = " + orderId)
                 .executeUpdate();
